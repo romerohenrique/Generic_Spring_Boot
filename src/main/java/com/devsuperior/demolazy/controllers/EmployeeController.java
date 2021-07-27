@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.devsuperior.demolazy.dto.EmployeeDTO;
 import com.devsuperior.demolazy.services.EmployeeService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/employees")
 public class EmployeeController {
@@ -21,5 +23,11 @@ public class EmployeeController {
 	public ResponseEntity<EmployeeDTO> findById(@PathVariable Long id) {
 		EmployeeDTO obj = service.findById(id);
 		return ResponseEntity.ok(obj);
+	}
+
+	@GetMapping
+	public ResponseEntity<List<EmployeeDTO>> findById() {
+		List<EmployeeDTO> list = service.findAll();
+		return ResponseEntity.ok(list);
 	}
 }
