@@ -1,6 +1,7 @@
 package com.generics.springboot.controllers;
 
 import com.generics.springboot.dto.EmployeeDTO;
+import com.generics.springboot.entities.Employee;
 import com.generics.springboot.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,12 @@ public class EmployeeController {
     @Autowired
     private EmployeeService service;
 
+    @PostMapping(value = "/post")
+    public ResponseEntity<EmployeeDTO> save(@RequestBody Employee obj) {
+        EmployeeDTO one = service.save(obj);
+        return ResponseEntity.ok().body(one);
+    }
+
     @GetMapping(value = "/{id}")
     public ResponseEntity<EmployeeDTO> findById(@PathVariable Long id) {
         EmployeeDTO obj = service.findById(id);
@@ -28,7 +35,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public void deleteById(@PathVariable Long id){
+    public void deleteById(@PathVariable Long id) {
         service.deleteById(id);
     }
 }
