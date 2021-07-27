@@ -2,6 +2,7 @@ package com.generics.springboot.controllers;
 
 import com.generics.springboot.dto.EmployeeDTO;
 import com.generics.springboot.entities.Employee;
+import com.generics.springboot.services.EmployeeService;
 import com.generics.springboot.services.GenericService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ import java.util.List;
 public class EmployeeController {
 
     @Autowired
-    private GenericService<Employee, EmployeeDTO, Long> service;
+    private EmployeeService service;
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<EmployeeDTO> findById(@PathVariable Long id) {
