@@ -1,6 +1,6 @@
-package com.devsuperior.demolazy.dto;
+package com.generics.springboot.dto;
 
-import com.devsuperior.demolazy.entities.Employee;
+import com.generics.springboot.entities.Employee;
 
 public class EmployeeDTO {
 

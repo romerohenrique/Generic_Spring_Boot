@@ -1,4 +1,4 @@
-package com.devsuperior.demolazy.entities;
+package com.generics.springboot.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

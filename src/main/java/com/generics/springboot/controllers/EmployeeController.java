@@ -1,4 +1,4 @@
-package com.devsuperior.demolazy.controllers;
+package com.generics.springboot.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.devsuperior.demolazy.dto.EmployeeDTO;
-import com.devsuperior.demolazy.services.EmployeeService;
+import com.generics.springboot.dto.EmployeeDTO;
+import com.generics.springboot.services.EmployeeService;
 
 import java.util.List;
 
