@@ -21,4 +21,9 @@ public interface GenericService<T extends Convertible<DTO>, DTO, ID> {
         List<T> list = getRepository().findAll();
         return list.stream().map(x -> x.convert()).collect(Collectors.toList());
     }
+    default DTO deleteById(ID id){
+      getRepository().deleteById(id);
+      return null;
+    }
+
 }
