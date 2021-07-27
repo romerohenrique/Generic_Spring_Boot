@@ -1,5 +1,8 @@
 package com.generics.springboot.entities;
 
+import com.generics.springboot.dto.EmployeeDTO;
+import com.generics.springboot.util.Convertible;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,35 +11,40 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_employee")
-public class Employee {
+public class Employee implements Convertible<EmployeeDTO> {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String name;
-	
-	public Employee() {
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
 
-	public Employee(Long id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
-	}
+    public Employee() {
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public Employee(Long id, String name) {
+        super();
+        this.id = id;
+        this.name = name;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public EmployeeDTO convert() {
+        return new EmployeeDTO(this);
+    }
 }
